@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
 const LOSSES_BY_YEAR = [
@@ -143,6 +144,7 @@ function DonutChart() {
 
 export default function Index() {
   const [visible, setVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 100);
@@ -312,7 +314,13 @@ export default function Index() {
           <span className="text-[10px] font-mono text-[#37474F] uppercase tracking-widest">
             Источники: МЧС России, Росстат, ВЦИОМ — данные за 2023 г.
           </span>
-          <span className="text-[10px] font-mono text-[#37474F]">Слайд 01 / 08</span>
+          <button
+            onClick={() => navigate("/slide3")}
+            className="flex items-center gap-1.5 text-[11px] text-[#546E7A] hover:text-[#90A4AE] transition-colors font-mono"
+          >
+            Слайд 03
+            <Icon name="ChevronRight" size={13} />
+          </button>
         </div>
       </div>
     </div>
